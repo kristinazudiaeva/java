@@ -1,0 +1,132 @@
+abstract class Animal {
+    private static int counter;
+    private String name;
+    protected int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+        counter++;
+    }
+
+    public abstract void makeSound();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public static int getCounter() {
+        return counter;
+    }
+}
+
+class Cat extends Animal {
+    private String species;
+
+    public Cat(String name, int age, String species) {
+        super(name, age);
+        this.species = species;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Мяу-Мяу!");
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+}
+
+class Parrot extends Animal {
+    private String species;
+
+    public Parrot(String name, int age, String species) {
+        super(name, age);
+        this.species = species;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Пиу-пиу!");
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+}
+
+class Fish extends Animal {
+    private String species;
+
+    public Fish(String name, int age, String species) {
+        super(name, age);
+        this.species = species;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Буль!");
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cat cat = new Cat("Снежок", 11, "Сиамская");
+        Parrot parrot = new Parrot("Кики", 2, "Корелла");
+        Fish fish = new Fish("Аква", 4, "Щука");
+
+        System.out.println("Имя кошки: " + cat.getName());
+        System.out.println("Возраст кошки: " + cat.getAge());
+        System.out.println("Вид кошки:" + cat.getSpecies());
+        cat.makeSound();
+        System.out.println("________________");
+
+        System.out.println("Имя попугая: " + parrot.getName());
+        System.out.println("Возраст попугая: " + parrot.getAge());
+        System.out.println("Вид попугая:" + parrot.getSpecies());
+        parrot.makeSound();
+        System.out.println("________________");
+
+        System.out.println("Имя рыбки: " + fish.getName());
+        System.out.println("Возраст рыбки: " + fish.getAge());
+        System.out.println("Вид рыбки:" + fish.getSpecies());
+        fish.makeSound();
+        System.out.println("________________");
+
+        fish.setAge(5);
+        cat.setSpecies("Вислоухая");
+
+        System.out.println("Новый возраст рыбки: " + fish.getAge());
+        System.out.println("Новый вид кошки: " + cat.getSpecies());
+
+        System.out.println("Кол-во животных:" + Animal.getCounter());
+    }
+}
